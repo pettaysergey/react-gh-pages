@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   background-color: #000;
   padding: 8px;
   color: #fff;
-  font-family: "8bit";
+  font-family: "Press Start 2P";
 `;
 
 export const Input = ({ value, placeholder, onChange }: Props) => (

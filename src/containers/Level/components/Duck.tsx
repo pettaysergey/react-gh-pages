@@ -15,7 +15,7 @@ const StyledImg = styled.img<{ posX: number; posY: number; speed: number }>`
   position: fixed;
   top: ${({ posY }) => `${posY}px`};
   left: ${({ posX }) => `${posX}px`};
-  transition: ${({ speed }) => `${speed / 1000000}s`};
+  transition: ${({ speed }) => `${speed / 1000}s`};
 `;
 
 export const Duck = ({ duckSpeed, handleClick, handleShoot }: Props) => {
