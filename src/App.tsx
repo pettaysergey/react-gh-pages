@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import styled from "styled-components/macro";
@@ -7,17 +7,15 @@ import { Auth } from "@containers/Auth";
 import { Settings } from "@containers/Settings";
 import { Home } from "@containers/Home";
 import { Level } from "@containers/Level";
+import { Background } from "@components/Background";
+import { PrivateRoute } from "@components/PrivateRoute";
+import { getUser } from "@containers/Auth/redux/selectors";
 
 import "./App.css";
-import { PrivateRoute } from "./components/PrivateRoute";
-import { getUser } from "./containers/Auth/redux/selectors";
-import backImage from "./assets/img/stage.png";
 
 const StyledApp = styled.div`
   height: 100vh;
-  background-image: ${() => `url(${backImage})`};
-  background-size: cover;
-  background-position: center center;
+  overflow: hidden;
 `;
 
 export const App = () => {
@@ -25,6 +23,7 @@ export const App = () => {
 
   return (
     <StyledApp>
+      <Background />
       <Routes>
         <Route path="/" element={<Auth user={user} />} />
         <Route

@@ -8,6 +8,7 @@ type Props = {
 };
 
 const StyledButton = styled.button<{ disabledAtr: boolean }>`
+  position: relative;
   border: 2px solid #6fde67;
   background-color: #000;
   padding: 8px;

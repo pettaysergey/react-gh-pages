@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
+import { Box } from "reflexbox";
 
-import { usePosition } from "./hooks/usePosition";
+import { Cursor } from "@components/Cursor";
+
 import { useParams } from "./hooks/useParams";
 import { useLevelParams } from "./hooks/useLevelParams";
 import { Duck } from "./components/Duck";
 import { GameOver } from "./components/GameOver";
-import { Box } from "reflexbox";
 import { Dashboard } from "./components/Dashboard";
 
 export const Level = () => {
@@ -29,6 +29,7 @@ export const Level = () => {
 
   return (
     <Box height="100%">
+      <Cursor />
       {isOver || isWin ? (
         <GameOver onClick={handleNewGame} isWin={isWin} />
       ) : (

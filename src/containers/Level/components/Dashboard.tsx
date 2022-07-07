@@ -37,7 +37,7 @@ export const Dashboard = ({ ammo, ducks, level, score }: Props) => {
         <Box mb="10px">Ammo</Box>
         <Flex justifyContent="center">
           {[...new Array(ammo)].map((_, i) => (
-            <Box mr="4px">
+            <Box mr="4px" key={i}>
               <img src={bullet} key={i} alt="bullet" width="10px" />
             </Box>
           ))}
