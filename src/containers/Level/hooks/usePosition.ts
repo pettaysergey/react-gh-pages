@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 type Position = {
   x: number;
   y: number;
+  leftDirection: boolean;
 };
 
 const h = window.innerHeight - 50;
@@ -13,6 +14,7 @@ const w = window.innerWidth - 50;
 const getStartPosition = () => ({
   x: Math.floor(Math.random() * w),
   y: Math.floor(Math.random() * h),
+  leftDirection: false,
 });
 
 const getNewPosition = () => {
@@ -31,12 +33,16 @@ export const usePosition = (): Position => {
     setInterval(() => {
       const { ny, nx } = getNewPosition();
 
-      setPosition({ x: nx, y: ny });
+      setPosition((val) => {
+        console.log(val.x);
+
+        return { x: nx, y: ny, leftDirection: nx < val.x };
+      });
     }, speed);
 
   const handleFirstPosition = () => {
     const { ny, nx } = getNewPosition();
-    setPosition({ x: nx, y: ny });
+    setPosition({ x: nx, y: ny, leftDirection: nx < position.x });
     handleStartInterval();
   };
 

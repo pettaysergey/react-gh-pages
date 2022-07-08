@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { usePosition } from "../hooks/usePosition";
 
 import duck from "../duck_gif.gif";
+import duck_left from "../duck_gif_left.gif";
 import { useOnClickOutside } from "../hooks/useOnClickOutside";
 
 type Props = {
@@ -19,7 +20,7 @@ const StyledImg = styled.img<{ posX: number; posY: number; speed: number }>`
 `;
 
 export const Duck = ({ duckSpeed, handleClick, handleShoot }: Props) => {
-  const { x, y } = usePosition();
+  const { x, y, leftDirection } = usePosition();
   const ref = useRef(null);
 
   useOnClickOutside(ref, handleShoot);
@@ -27,7 +28,7 @@ export const Duck = ({ duckSpeed, handleClick, handleShoot }: Props) => {
   return (
     <StyledImg
       ref={ref}
-      src={duck}
+      src={leftDirection ? duck_left : duck}
       width="60"
       alt=""
       posX={x}
